@@ -1,12 +1,13 @@
 import express from "express";
+import cors from "cors";
+
 const initDB = require("./config/db");
 const bodyParser = require("body-parser");
+const router = require("./network/routes");
+
 const app = express();
 
 const port = 3000;
-
-const userRouters = require("./routes/user");
-const itemsRouters = require("./routes/items");
 
 // for parsing json
 app.use(
@@ -21,9 +22,11 @@ app.use(
     extended: true,
   })
 );
+// cors para limitar acceso a la api
+app.use(cors());
 
-app.use(userRouters);
-app.use(itemsRouters);
+router(app);
+
 
 app.listen(port, () => {
   console.log("La aplicacion esta en linea en el puerto 3000");
