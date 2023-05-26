@@ -50,11 +50,16 @@ exports.putProduct = async (req: any, res: any) => {
 exports.postProduct = async (req: any, res: any) => {
   try {
     const data = req.body;
+
     const resDb = await model.create(data);
 
     response.successCreate(req, res, resDb, 201);
-  } catch (err) {
-    response.error(req, res, "failed to create", 400, err);
+  } catch (err: any) {
+    if (err?.code === 11000) {
+      response.error(req, res, "duplicate key", 400, err);
+    } else {
+      response.error(req, res, "failed to create", 400, err);
+    }
   }
 };
 
