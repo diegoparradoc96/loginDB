@@ -39,7 +39,7 @@ exports.putProduct = async (req: any, res: any) => {
     if (resDb.modifiedCount > 0) {
       response.successUpdate(req, res, resDb, 200);
     } else {
-      response.error(req, res, "failed to update", 400);
+      response.error(req, res, "no match found", 400, resDb);
     }
   } catch (err) {
     // no se en que situacion podria irse al catch tengo que averiguar
@@ -56,6 +56,7 @@ exports.postProduct = async (req: any, res: any) => {
     response.successCreate(req, res, resDb, 201);
   } catch (err: any) {
     if (err?.code === 11000) {
+      console.log("el errorsito: ", err);
       response.error(req, res, "duplicate key", 400, err);
     } else {
       response.error(req, res, "failed to create", 400, err);
@@ -72,7 +73,7 @@ exports.deleteProduct = async (req: any, res: any) => {
     if (resDb.deletedCount > 0) {
       response.successDelete(req, res, resDb, 200);
     } else {
-      response.error(req, res, "failed to deleted", 400);
+      response.error(req, res, "no match found", 400);
     }
   } catch (err) {
     // no se en que situacion podria irse al catch tengo que averiguar

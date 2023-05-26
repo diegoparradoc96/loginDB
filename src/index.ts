@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+console.clear()
 
 const initDB = require("./config/db");
 const bodyParser = require("body-parser");

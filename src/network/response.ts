@@ -1,16 +1,34 @@
 import express, { Request, Response } from "express";
 
+const personalizedResponse = ({
+  error,
+  details,
+  body,
+}: {
+  error: string;
+  details: string;
+  body: {};
+}) => {
+  return {
+    error,
+    details,
+    body,
+  };
+};
+
 exports.successGet = (
   req: Request,
   res: Response,
-  resDb: any,
+  resDb: {},
   status: number
 ) => {
-  res.status(status || 200).send({
-    error: "",
-    details: "obtained",
-    body: resDb,
-  });
+  res.status(status || 200).send(
+    personalizedResponse({
+      error: "",
+      details: "obtained",
+      body: resDb,
+    })
+  );
 };
 
 exports.successCreate = (
@@ -19,11 +37,13 @@ exports.successCreate = (
   resDb: any,
   status: number
 ) => {
-  res.status(status || 201).send({
-    error: "",
-    details: "created",
-    body: resDb,
-  });
+  res.status(status || 201).send(
+    personalizedResponse({
+      error: "",
+      details: "created",
+      body: resDb,
+    })
+  );
 };
 
 exports.successUpdate = (
@@ -32,11 +52,13 @@ exports.successUpdate = (
   resDb: any,
   status: number
 ) => {
-  res.status(status || 200).send({
-    error: "",
-    details: "updated",
-    body: resDb,
-  });
+  res.status(status || 200).send(
+    personalizedResponse({
+      error: "",
+      details: "updated",
+      body: resDb,
+    })
+  );
 };
 
 exports.successDelete = (
@@ -45,11 +67,13 @@ exports.successDelete = (
   resDb: any,
   status: number
 ) => {
-  res.status(status || 200).send({
-    error: "",
-    details: "deleted",
-    body: resDb,
-  });
+  res.status(status || 200).send(
+    personalizedResponse({
+      error: "",
+      details: "deleted",
+      body: resDb,
+    })
+  );
 };
 
 exports.error = (
@@ -61,9 +85,11 @@ exports.error = (
 ) => {
   console.error("[response error] ", details);
 
-  res.status(status || 500).send({
-    error: message,
-    details: "failed",
-    body: "",
-  });
+  res.status(status || 500).send(
+    personalizedResponse({
+      error: message,
+      details: "failed",
+      body: {},
+    })
+  );
 };

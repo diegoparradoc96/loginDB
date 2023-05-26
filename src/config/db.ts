@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const DB_URI = `mongodb://localhost:27017/my_app_node`;
+const DB_URI = `mongodb://0.0.0.0:27017/my_app_node`;
 
 module.exports = async () => {
   try {
