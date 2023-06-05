@@ -4,13 +4,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
+const cors_1 = __importDefault(require("cors"));
+console.clear();
 const initDB = require("./config/db");
 const bodyParser = require("body-parser");
 const router = require("./network/routes");
 const app = (0, express_1.default)();
 const port = 3000;
-// const userRouters = require("./routes/products");
-// const itemsRouters = require("./routes/items");
 // for parsing json
 app.use(bodyParser.json({
     limit: "20mb",
@@ -20,9 +20,9 @@ app.use(bodyParser.urlencoded({
     limit: "20mb",
     extended: true,
 }));
+// cors para limitar acceso a la api
+app.use((0, cors_1.default)());
 router(app);
-// app.use(userRouters);
-// app.use(itemsRouters);
 app.listen(port, () => {
     console.log("La aplicacion esta en linea en el puerto 3000");
 });

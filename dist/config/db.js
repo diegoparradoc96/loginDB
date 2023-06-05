@@ -13,7 +13,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importDefault(require("mongoose"));
-const DB_URI = `mongodb://localhost:27017/my_app_node`;
+const DB_URI = `mongodb://0.0.0.0:27017/my_app_node`;
 module.exports = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         yield mongoose_1.default.connect(DB_URI, {

@@ -1,8 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-//const message = require("../components/message/network");
-const products = require("../routes/products");
+const productsRoutes = require("../routes/products");
 const routes = (server) => {
-    server.use(products);
+    server.use(productsRoutes);
 };
 module.exports = routes;
