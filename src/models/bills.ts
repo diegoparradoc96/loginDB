@@ -21,15 +21,23 @@ const BillsSCheme = new mongoose.Schema(
     },
     aseguradoraPaciente: {
       type: String,
-      required: false,
+      required: true,
     },
     estadoPaciente: {
       type: String,
-      required: false,
+      required: true,
     },
     tipoProcedimiento: {
       type: String,
+      required: true,
+    },
+    tipoDeCuracion: {
+      type: String,
       required: false,
+    },
+    profesionalEncargado: {
+      type: String,
+      required: true,
     },
     gastoPaciente: [
       {
