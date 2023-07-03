@@ -46,7 +46,7 @@ const BillsSCheme = new mongoose_1.default.Schema({
     },
     profesionalEncargado: {
         type: String,
-        required: true,
+        required: false,
     },
     gastoPaciente: [
         {
