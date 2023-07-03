@@ -121,6 +121,8 @@ exports.getDateBills = async (req: any, res: any) => {
       fechaProcedimiento: { $regex: regex, $options: "i" },
     });
 
+    console.log("resDb: ", resDb);
+
     billsResponse.successGet(req, res, resDb, 200);
   } catch (error) {
     billsResponse.error(req, res, "Error obtener productos", 400, error);

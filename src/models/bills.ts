@@ -31,13 +31,19 @@ const BillsSCheme = new mongoose.Schema(
       type: String,
       required: true,
     },
-    tipoDeCuracion: {
-      type: String,
-      required: false,
+    complejidadCuracion: {
+      nivelComplejidad: {
+        type: String,
+        required: false,
+      },
+      precio: {
+        type: Number,
+        required: false,
+      },
     },
     profesionalEncargado: {
       type: String,
-      required: true,
+      required: false,
     },
     gastoPaciente: [
       {

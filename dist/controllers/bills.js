@@ -109,6 +109,7 @@ exports.getDateBills = (req, res) => __awaiter(void 0, void 0, void 0, function*
         const resDb = yield billsModel.find({
             fechaProcedimiento: { $regex: regex, $options: "i" },
         });
+        console.log("resDb: ", resDb);
         billsResponse.successGet(req, res, resDb, 200);
     }
     catch (error) {
