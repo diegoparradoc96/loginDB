@@ -18,6 +18,10 @@ const SettingsSCheme = new mongoose.Schema(
       type: Number,
       required: true,
     },
+    precioValoracion: {
+      type: Number,
+      required: true,
+    },
   },
   {
     versionKey: false,

@@ -21,6 +21,10 @@ const SettingsSCheme = new mongoose_1.default.Schema({
         type: Number,
         required: true,
     },
+    precioValoracion: {
+        type: Number,
+        required: true,
+    },
 }, {
     versionKey: false,
     timestamps: true,

@@ -45,6 +45,10 @@ const BillsSCheme = new mongoose.Schema(
       type: String,
       required: false,
     },
+    precioValoracion: {
+      type: Number,
+      required: true,
+    },
     gastoPaciente: [
       {
         codigo: {
