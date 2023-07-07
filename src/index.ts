@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-console.clear()
+console.clear();
 
 const initDB = require("./config/db");
 const bodyParser = require("body-parser");
@@ -28,9 +28,8 @@ app.use(cors());
 
 router(app);
 
-
 app.listen(port, () => {
-  console.log("La aplicacion esta en linea en el puerto 3000");
+  console.log(`La aplicacion esta en linea en el puerto ${port}`);
 });
 
 initDB();

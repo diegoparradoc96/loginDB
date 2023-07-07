@@ -10,7 +10,7 @@ const initDB = require("./config/db");
 const bodyParser = require("body-parser");
 const router = require("./network/routes");
 const app = (0, express_1.default)();
-const port = 3000;
+const port = 3001;
 // for parsing json
 app.use(bodyParser.json({
     limit: "20mb",
@@ -24,6 +24,6 @@ app.use(bodyParser.urlencoded({
 app.use((0, cors_1.default)());
 router(app);
 app.listen(port, () => {
-    console.log("La aplicacion esta en linea en el puerto 3000");
+    console.log(`La aplicacion esta en linea en el puerto ${port}`);
 });
 initDB();
